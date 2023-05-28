@@ -1,6 +1,15 @@
+using MeuCrm.Repositories.IRepositories;
+using MeuCrm.Repositories;
+using MeuCrm.Services.IServices;
+using MeuCrm.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Repositories
+builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
+
+// Services
+builder.Services.AddTransient<IClienteService, ClienteService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
